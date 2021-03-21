@@ -45,6 +45,10 @@ class OnLanePlanning : public PlanningBase {
   }
   virtual ~OnLanePlanning();
 
+
+  
+  void HardReset();
+
   /**
    * @brief Planning name.
    */

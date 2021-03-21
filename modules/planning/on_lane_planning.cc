@@ -72,6 +72,27 @@ OnLanePlanning::~OnLanePlanning() {
   last_routing_.Clear();
   injector_->ego_info()->Clear();
 }
+////////////////////////////////////////////////
+void OnLanePlanning::HardReset() {
+  if (reference_line_provider_) {
+    reference_line_provider_->Stop();
+  }
+  planner_->Stop();
+  injector_->frame_history()->Clear();
+  injector_->history()->Clear();
+  injector_->planning_context()->mutable_planning_status()->Clear();
+  last_routing_.Clear();
+  injector_->ego_info()->Clear();
+  AERROR <<"------------------------------------------";
+  AERROR <<"---                                    ---";
+  AERROR <<"---     Planning Module Head Reset     ---";
+  AERROR <<"---                                    ---";
+  AERROR <<"------------------------------------------";
+
+  Init(config_);
+
+}
+////////////////////////////////////////////
 
 std::string OnLanePlanning::Name() const { return "on_lane_planning"; }
 
@@ -276,6 +297,9 @@ void OnLanePlanning::RunOnce(const LocalView& local_view,
     ptr_trajectory_pb->set_gear(canbus::Chassis::GEAR_DRIVE);
     FillPlanningPb(start_timestamp, ptr_trajectory_pb);
     GenerateStopTrajectory(ptr_trajectory_pb);
+    /////////////////
+    HardReset();
+    /////////////////
     return;
   }
 

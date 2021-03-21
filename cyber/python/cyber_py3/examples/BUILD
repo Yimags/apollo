@@ -11,6 +11,32 @@ py_binary(
         "//modules/common/proto:error_code_py_pb2",
         "//modules/common/proto:header_py_pb2",
         "//modules/common/util/testdata:simple_py_pb2",
+
+	"//modules/canbus/proto:chassis_py_pb2",
+	"//modules/localization/proto:localization_py_pb2",
+	"//modules/perception/proto:perception_obstacle_py_pb2",
+	"//modules/transform/proto:transform_py_pb2",
+	"//modules/control/proto:control_cmd_py_pb2",
+	"//modules/prediction/proto:prediction_obstacle_py_pb2",
+    ],
+)
+
+py_binary(
+    name = "record_custom",
+    srcs = ["record_custom.py"],
+    deps = [
+        "//cyber/proto:unit_test_py_pb2",
+        "//cyber/python/cyber_py3:record",
+        "//modules/common/proto:error_code_py_pb2",
+        "//modules/common/proto:header_py_pb2",
+        "//modules/common/util/testdata:simple_py_pb2",
+
+	"//modules/canbus/proto:chassis_py_pb2",
+	"//modules/localization/proto:localization_py_pb2",
+	"//modules/perception/proto:perception_obstacle_py_pb2",
+	"//modules/transform/proto:transform_py_pb2",
+	"//modules/control/proto:control_cmd_py_pb2",
+	"//modules/prediction/proto:prediction_obstacle_py_pb2",
     ],
 )
 
@@ -19,6 +45,14 @@ py_binary(
     srcs = ["time.py"],
     deps = [
         "//cyber/python/cyber_py3:cyber_time",
+    ],
+)
+
+py_binary(
+    name = "test",
+    srcs = ["test.py"],
+    deps = [
+        "//cyber/python/cyber_py3/examples:listener",
     ],
 )
 
@@ -41,11 +75,90 @@ py_binary(
 )
 
 py_binary(
+    name = "writer_custom",
+    srcs = ["writer_custom.py"],
+    deps = [
+        "//cyber/python/cyber_py3:cyber",
+        "//modules/routing/proto:routing_py_pb2",
+    ],
+)
+
+
+py_binary(
+    name = "recorder_writer",
+    srcs = ["recorder_writer.py"],
+    deps = [
+        "//cyber/proto:unit_test_py_pb2",
+        "//cyber/python/cyber_py3:cyber",
+	"//modules/common/util/testdata:simple_py_pb2",
+
+	"//modules/canbus/proto:chassis_py_pb2",
+	"//modules/localization/proto:localization_py_pb2",
+	"//modules/perception/proto:perception_obstacle_py_pb2",
+	"//modules/transform/proto:transform_py_pb2",
+	"//modules/control/proto:control_cmd_py_pb2",
+	"//modules/prediction/proto:prediction_obstacle_py_pb2",
+"//modules/drivers/proto:sensor_image_py_pb2",
+"//modules/routing/proto:routing_py_pb2",
+    ],
+)
+
+
+py_binary(
     name = "listener",
     srcs = ["listener.py"],
     deps = [
         "//cyber/proto:unit_test_py_pb2",
         "//cyber/python/cyber_py3:cyber",
+	"//modules/common/util/testdata:simple_py_pb2",
+
+	"//modules/canbus/proto:chassis_py_pb2",
+	"//modules/localization/proto:localization_py_pb2",
+	"//modules/perception/proto:perception_obstacle_py_pb2",
+	"//modules/transform/proto:transform_py_pb2",
+	"//modules/control/proto:control_cmd_py_pb2",
+	"//modules/prediction/proto:prediction_obstacle_py_pb2",
+"//modules/drivers/proto:sensor_image_py_pb2",
+"//modules/routing/proto:routing_py_pb2",
+    ],
+)
+
+py_binary(
+    name = "listener_custom",
+    srcs = ["listener_custom.py"],
+    deps = [
+        "//cyber/proto:unit_test_py_pb2",
+        "//cyber/python/cyber_py3:cyber",
+	"//modules/common/util/testdata:simple_py_pb2",
+
+	"//modules/canbus/proto:chassis_py_pb2",
+	"//modules/localization/proto:localization_py_pb2",
+	"//modules/perception/proto:perception_obstacle_py_pb2",
+	"//modules/transform/proto:transform_py_pb2",
+	"//modules/control/proto:control_cmd_py_pb2",
+	"//modules/prediction/proto:prediction_obstacle_py_pb2",
+"//modules/drivers/proto:sensor_image_py_pb2",
+"//modules/routing/proto:routing_py_pb2",
+"//modules/drivers/proto:pointcloud_py_pb2",
+    ],
+)
+
+py_binary(
+    name = "realtime_data_storage",
+    srcs = ["realtime_data_storage.py"],
+    deps = [
+        "//cyber/python/cyber_py3:cyber",
+	"//modules/common/util/testdata:simple_py_pb2",
+        "//cyber/python/cyber_py3:cyber_time",
+	"//modules/canbus/proto:chassis_py_pb2",
+	"//modules/localization/proto:localization_py_pb2",
+	"//modules/perception/proto:perception_obstacle_py_pb2",
+	"//modules/transform/proto:transform_py_pb2",
+	"//modules/control/proto:control_cmd_py_pb2",
+	"//modules/prediction/proto:prediction_obstacle_py_pb2",
+	"//modules/drivers/proto:sensor_image_py_pb2",
+	"//modules/routing/proto:routing_py_pb2",
+	"//modules/drivers/proto:pointcloud_py_pb2",
     ],
 )
 
@@ -92,5 +205,17 @@ py_binary(
         "//cyber/proto:record_py_pb2",
         "//cyber/python/cyber_py3:cyber",
         "//cyber/python/cyber_py3:record",
+    ],
+)
+
+
+
+py_binary(
+    name = "mock_routing_request",
+    srcs = ["mock_routing_request.py"],
+    deps = [
+        "//cyber/python/cyber_py3:cyber",
+        "//cyber/python/cyber_py3:cyber_time",
+        "//modules/routing/proto:routing_py_pb2",
     ],
 )

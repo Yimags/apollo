@@ -18,6 +18,12 @@ cyber_modules {
   }
 }
 cyber_modules {
+  key: "Control_MPC"
+  value: {
+    dag_files: "/apollo/modules/control/dag/control_mpc_control.dag"
+  }
+}
+cyber_modules {
   key: "GPS"
   value: {
     dag_files: "/apollo/modules/drivers/gnss/dag/gnss.dag"
