@@ -120,6 +120,10 @@ py_binary(
 	"//modules/prediction/proto:prediction_obstacle_py_pb2",
 "//modules/drivers/proto:sensor_image_py_pb2",
 "//modules/routing/proto:routing_py_pb2",
+"//modules/drivers/proto:conti_radar_py_pb2",
+"//modules/drivers/gnss/proto:gnss_best_pose_py_pb2",
+"//modules/localization/proto:gps_py_pb2",
+"//modules/drivers/gnss/proto:imu_py_pb2",
     ],
 )
 
@@ -159,6 +163,10 @@ py_binary(
 	"//modules/drivers/proto:sensor_image_py_pb2",
 	"//modules/routing/proto:routing_py_pb2",
 	"//modules/drivers/proto:pointcloud_py_pb2",
+	"//modules/drivers/proto:conti_radar_py_pb2",
+	"//modules/drivers/gnss/proto:gnss_best_pose_py_pb2",
+	"//modules/localization/proto:gps_py_pb2",
+	"//modules/drivers/gnss/proto:imu_py_pb2",
     ],
 )
 
